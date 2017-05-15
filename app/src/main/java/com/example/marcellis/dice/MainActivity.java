@@ -1,5 +1,6 @@
 package com.example.marcellis.dice;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,22 +9,38 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ImageView diceImageView;
+    private Random randomGenerator = new Random();
+
+    private final int[] diceImages = new int[]{
+            R.drawable.d1,
+            R.drawable.d2,
+            R.drawable.d3,
+            R.drawable.d4,
+            R.drawable.d5,
+            R.drawable.d6
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
+        diceImageView = (ImageView) findViewById(R.id.imageView);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                rollDice();
             }
         });
     }
@@ -48,5 +65,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void rollDice() {
+        int score = randomGenerator.nextInt(6);
+        diceImageView.setImageResource(diceImages[score]);
     }
 }
