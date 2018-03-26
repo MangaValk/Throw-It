@@ -1,4 +1,4 @@
-package com.example.marcellis.dice;
+package com.example.marcellis.ThrowDice;
 
 import org.junit.Test;
 

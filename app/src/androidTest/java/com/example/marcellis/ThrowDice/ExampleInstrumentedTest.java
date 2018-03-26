@@ -1,4 +1,4 @@
-package com.example.marcellis.dice;
+package com.example.marcellis.ThrowDice;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.marcellis.dice", appContext.getPackageName());
+        assertEquals("com.example.marcellis.ThrowDice", appContext.getPackageName());
     }
 }
